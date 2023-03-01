@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  notificationservice.url: notification-service
+kind: ConfigMap
+metadata:
+  name: registration-configmap
+  namespace: ckad

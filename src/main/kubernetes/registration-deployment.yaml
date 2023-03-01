@@ -1,0 +1,28 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  labels:
+    app: registration-deployment
+  name: registration-deployment
+  namespace: ckad
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: registration-deployment
+  template:
+    metadata:
+      labels:
+        app: registration-deployment
+    spec:
+      containers:
+      - image: ridaa/registration:0.0.2
+        name: registration
+        ports:
+        - containerPort: 8080
+        env:
+        - name: NOTIFICATIONSERVICE_URL
+          valueFrom:
+            configMapKeyRef:
+              name: registration-configmap
+              key: notificationservice.url
