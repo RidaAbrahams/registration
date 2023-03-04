@@ -16,7 +16,7 @@ spec:
         app: registration-deployment
     spec:
       containers:
-      - image: ridaa/registration:0.0.2
+      - image: ridaa/registration:0.0.3
         name: registration
         ports:
         - containerPort: 8080
